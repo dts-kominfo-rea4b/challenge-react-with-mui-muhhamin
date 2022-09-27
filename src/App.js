@@ -29,7 +29,7 @@ const App = () => {
         </Grid>
         <Grid item xs={6} padding={3}>
           {contacts.map((data, index) => (
-            <Contact key={index} contact={data} />
+            <Contact key={index} data={data} />
           ))}
         </Grid>
       </Grid>
