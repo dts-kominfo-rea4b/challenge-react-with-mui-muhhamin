@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import { Grid, List } from "@mui/material";
+import { Grid } from "@mui/material";
 import Header from "./components/Header";
 import ContactForm from "./components/ContactForm";
 import Contact from "./components/Contact";
@@ -13,16 +13,11 @@ const App = () => {
 
   // Masukkan contacts yang sudah didapat dalam JSON sebagai initial state
   // Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
-  const [contacts, setDataContacts] = useState(contactsJSON);
+  const [contacts, setContacts] = useState(contactsJSON);
 
   const addNewContact = (inputDataContact) => {
-    const dataContact = {
-      name: inputDataContact.name,
-      phone: inputDataContact.phone,
-      email: inputDataContact.email,
-      photo: inputDataContact.photo,
-    };
-    setDataContacts([...contacts, dataContact]);
+    const newContacts = [...contacts, inputDataContact];
+    setContacts(newContacts);
   };
 
   return (
@@ -34,7 +29,7 @@ const App = () => {
         </Grid>
         <Grid item xs={6} padding={3}>
           {contacts.map((data, index) => (
-            <Contact key={index} dataContact={data} />
+            <Contact key={index} contact={data} />
           ))}
         </Grid>
       </Grid>

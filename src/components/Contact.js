@@ -14,16 +14,16 @@ import {
 
 // Kalian bisa membuat CSS sendiri di src/components/Contact.css
 // atau langsung tambahkan dengan sx={{}}
-const Contact = ({ dataContact }) => {
+const Contact = ({ contact }) => {
   // Contact berisi foto, nama, telepon, dan email
   return (
     <List sx={{ width: "100%", p: 2, bgcolor: "background.paper" }}>
-      <ListItem alignItems="flex-start" key={dataContact.email}>
+      <ListItem alignItems="flex-start">
         <ListItemAvatar>
-          <Avatar alt="Remy Sharp" src={dataContact.photo} />
+          <Avatar alt="Remy Sharp" src={contact.photo} />
         </ListItemAvatar>
         <ListItemText
-          primary={dataContact.name}
+          primary={contact.name}
           secondary={
             <React.Fragment>
               <Typography
@@ -31,9 +31,9 @@ const Contact = ({ dataContact }) => {
                 component="span"
                 variant="body2"
                 color="text.primary"></Typography>
-              {dataContact.phone}
+              {contact.phone}
               <br />
-              {dataContact.email}
+              {contact.email}
             </React.Fragment>
           }
         />
