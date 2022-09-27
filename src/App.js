@@ -33,11 +33,9 @@ const App = () => {
           <ContactForm addNewContacts={addNewContact} />
         </Grid>
         <Grid item xs={6} padding={3}>
-          <List sx={{ width: "100%", p: 2, bgcolor: "background.paper" }}>
-            {dataContacts.map((data) => (
-              <Contact dataContact={data} />
-            ))}
-          </List>
+          {dataContacts.map((data, index) => (
+            <Contact key={index} dataContact={data} />
+          ))}
         </Grid>
       </Grid>
     </div>

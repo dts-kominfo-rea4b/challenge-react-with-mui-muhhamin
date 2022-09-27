@@ -8,6 +8,8 @@ import {
   ListItemAvatar,
   Avatar,
   Typography,
+  List,
+  Divider,
 } from "@mui/material";
 
 // Kalian bisa membuat CSS sendiri di src/components/Contact.css
@@ -15,27 +17,29 @@ import {
 const Contact = ({ dataContact }) => {
   // Contact berisi foto, nama, telepon, dan email
   return (
-    <ListItem alignItems="flex-start" key={dataContact.email}>
-      <ListItemAvatar>
-        <Avatar alt="Remy Sharp" src={dataContact.photo} />
-      </ListItemAvatar>
-      <ListItemText
-        primary={dataContact.name}
-        secondary={
-          <React.Fragment>
-            <Typography
-              sx={{ display: "inline" }}
-              component="span"
-              variant="body2"
-              color="text.primary"></Typography>
-            {dataContact.phone}
-            <br />
-            {dataContact.email}
-          </React.Fragment>
-        }
-      />
-    </ListItem>
-    //   <Divider variant="inset" component="li" />
+    <List sx={{ width: "100%", p: 2, bgcolor: "background.paper" }}>
+      <ListItem alignItems="flex-start" key={dataContact.email}>
+        <ListItemAvatar>
+          <Avatar alt="Remy Sharp" src={dataContact.photo} />
+        </ListItemAvatar>
+        <ListItemText
+          primary={dataContact.name}
+          secondary={
+            <React.Fragment>
+              <Typography
+                sx={{ display: "inline" }}
+                component="span"
+                variant="body2"
+                color="text.primary"></Typography>
+              {dataContact.phone}
+              <br />
+              {dataContact.email}
+            </React.Fragment>
+          }
+        />
+      </ListItem>
+      <Divider variant="inset" component="li" />
+    </List>
   );
 };
 
